@@ -1,19 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Data Viz Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Crime: Two Decades of Data</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+        }
+        header {
+            width: 100%;
+            padding: 30px;
+            background-color: #16213e;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #16c79a;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: #2a2a4d;
+            border-radius: 12px;
+            padding: 15px;
+            width: 320px;
+            box-sizing: border-box;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #16c79a;
+        }
+        .card p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #e94560;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .card a:hover {
+            background-color: #ff6b81;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>This site will soon contain interactive data visualizations about crime in San Francisco.</p>
+
+<header>
+    <h1>SF Crime: Two Decades of Data</h1>
+    <p>Explore San Francisco crime patterns over 20+ years. Interactive charts, static plots, and heatmaps help uncover trends by year, hour, and location.</p>
+</header>
+
+<main>
+    <!-- 静态 Matplotlib 图 -->
+    <div class="card">
+        <h2>Annual Crime Trends</h2>
+        <p>Static plot showing yearly counts of your personal focus crimes from 2003 to 2025.</p>
+        <img src="images/yearly_crime_trends.png" alt="Yearly crime trends in SF">
+    </div>
+
+    <!-- 交互式 Plotly 图 -->
+    <div class="card">
+        <h2>Hourly Crime Patterns</h2>
+        <p>Interactive chart showing how personal focus crimes are distributed by hour each year.</p>
+        <iframe src="visualizations/crime_hourly_interactive.html" height="400"></iframe>
+    </div>
+
+    <!-- Folium 热力图 -->
+    <div class="card">
+        <h2>Crime Heatmap</h2>
+        <p>Interactive Folium map showing the geographic distribution of selected crimes in San Francisco.</p>
+        <iframe src="visualizations/sf_crime_heatmap.html" height="400"></iframe>
+    </div>
+</main>
+
 </body>
 </html>
-
-<h2>Annual Counts of Personal Focus Crimes</h2>
-<img src="images/yearly_trends.png" alt="Yearly crime trends" style="max-width: 100%;">
-
-<h2>Hourly Distribution of Personal Focus Crimes</h2>
-<iframe src="visualizations/crime_hourly_interactive.html" width="100%" height="600" frameborder="0"></iframe>
-
-<h2>San Francisco Crime Heatmap</h2>
-<iframe src="visualizations/sf_crime_heatmap.html" width="100%" height="600" frameborder="0"></iframe>
